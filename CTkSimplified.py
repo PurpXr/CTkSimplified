@@ -8,8 +8,9 @@ class CTkSimplifiedFrame(ctk.CTkFrame):
     def __init__(self, master, **kwargs):
         super().__init__(master, **kwargs)
 
-        self.label = ctk.CTkLabel(self)
-        self.label.pack(padx=20, pady=20)
+class CTkSimplifiedLabel(ctk.CTkLabel):
+    def __init__(self, master, **kwargs):
+        super().__init__(master, **kwargs)
 
 
 class CTkSimplified(ctk.CTk):
@@ -20,8 +21,13 @@ class CTkSimplified(ctk.CTk):
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
 
-        self.frame1 = CTkSimplifiedFrame(master=self)
-        self.frame1.grid(row=0, column=0, padx=20, pady=20, sticky='nsew')
+    def place_frame(self, frame, master, row, column, padx=0, pady=0, **kwargs):
+        frame = CTkSimplifiedFrame(master=master, **kwargs)
+        frame.grid(row=row, column=column, padx=padx, pady=pady, stick='nsew')
+
+    def place_label(self, label, master, row, column, padx=0, pady=0, **kwargs):
+        label = CTkSimplifiedLabel(master=master, **kwargs)
+        label.grid(row=row, column=column, padx=padx, pady=pady)
 
 
 
