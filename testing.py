@@ -4,10 +4,7 @@ ctk.starter_config(appearance_mode='Dark', default_color_theme='blue')
 
 root = ctk.CTkSimplified(title="aplikacja", geometry='500x450')
 
-frame1 = ctk.CTkSimplifiedFrame(root)
-root.place_frame(frame=frame1, master=root, row=0, column=0, padx=20, pady=20)
-
-label1 = ctk.CTkSimplifiedLabel(root)
-root.place_label(label=label1, master=root, row=0, column=0, padx=20, text="text!")
+label1 = ctk.CTkSimplifiedLabel(master=root, text="Text!", text_color='blue', font=("Monospace", 25))
+label1.create(relx=0.5, rely=0.1)
 
 root.mainloop()
