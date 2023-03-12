@@ -1,7 +1,7 @@
 
 # Current version
 
-> Late beta
+> 1.0.1
 
 # How to use
 
@@ -46,7 +46,7 @@ root.mainloop()
 
 ```
 label = CTkSimplified.CTkSimplifiedLabel(master=app, text="Text")
-# app is ctksimplified.CTkSimplified instance
+# app is CTkSimplified.CTkSimplifiedLabel instance
 label.create(relx=0.5, rely=0.5) 
 # relx and rely are percentage of windows height and width 
 ```
@@ -58,22 +58,55 @@ def cmd(arguments):
 	# commands logic here
 
 button = CTkSimplified.CTkSimplifiedButton(master=app, text="Button", height=50, width=100, font=("Monospace", 25), command=cmd(arguments))
+button.create(relx=0.5, rely-0.8)
 ```
 
-# Changes 
+#### Textbox usage:
+
+```
+val = "value"
+
+def check():
+	textbox_val = textbox.get('0.0', 'end') 
+	if textbox_val.startswith(val):
+		button.configure(text="Logged in!")
+		textbox.configure(state='disabled')
+
+# .get('0.0', 'end') means that the value is being checked from line 0, character 0, to the end
+# Remember that in val.startswith(val) startswith is required because it counts free space as characters
+# You can check it by cliking on the textbox and pressing control + a
+
+textbox = CTkSimplified.CTkSimplifiedTextbox(master=app, width=200, height=50, font=("Monospace", 25))
+textbox.create(relx=0.3, 0.3)
+
+button = CTkSimplified.CTkSimplifiedButton(master=app, text="Button", width=150, height=50, font=("Monospace", 25), command=lambda: check())
+button.create(relx=0.5, rely=0.8)
+
+# textboxes and buttons mixed are really useful
+```
+
+### If buttons commands=cmd() doesn't work then use
+
+`command=lambda: cmd()`
+
+# Features 
 
 ## Alpha --> Beta:
 
 >Labels were added
+>
 >Frames weren't compatible with other objects such as labels or buttons
 
 ## Beta --> 1.0.0v:
 
 > Buttons were added
 
+## 1.0.0v --> 1.0.1v:
+
+> Textboxes were added
 # Work in progress...
 
-- [x] Adding Lsabels
-- [x] Adding Buttons
-- [ ] Adding Textboxes
-- [ ] Reworking frames
+- [x] Add Labels
+- [x] Add Buttons
+- [x] Add Textboxes
+- [ ] Rework frames
