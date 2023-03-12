@@ -11,10 +11,24 @@ def starter_config(appearance_mode, default_color_theme):
 class CTkSimplifiedLabel(ctk.CTkLabel):
     def __init__(self, master, **kwargs):
         super().__init__(master, **kwargs)
-        self.master = master
 
     def create(self, relx, rely, anchor=tkinter.CENTER, **kwargs):
         self.place(relx=relx, rely=rely, anchor=anchor, **kwargs)
+
+
+class CTkSimplifiedButton(ctk.CTkButton):
+    def __init__(self, master, **kwargs):
+        super().__init__(master, **kwargs)
+
+    def create(self, relx, rely, anchor=tkinter.CENTER, **kwargs):
+        self.place(relx=relx, rely=rely, anchor=anchor, **kwargs)
+
+class CTkSimplifiedTextbox(ctk.CTkTextbox):
+    def __init__(self, master, **kwargs):
+        super().__init__(master, **kwargs)
+
+    def create(self, relx, rely, **kwargs):
+        self.place(relx=relx, rely=rely, **kwargs)
 
 
 class CTkSimplified(ctk.CTk):
